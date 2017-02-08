@@ -1,0 +1,28 @@
+def FrequentWords(Text, k):
+    FrequentPatterns = [] # output variable
+    Count = CountDict(Text, k)
+    m = max(Count.values())
+    for i in Count:
+        if Count[i] == m:
+            FrequentPatterns.append(Text[i:i+k])
+    k =
+    Text = ""
+#This is where you insert your k and your Text str()
+    return FrequentPatterns
+
+def CountDict(Text, k):
+    Count = {}
+    for i in range(len(Text)-k+1):
+        Pattern = Text[i:i+k]
+        Count[i] = PatternCount(Pattern, Text)
+    return Count
+
+#Dont forget to define k and Text
+
+def PatternCount(Pattern, Text):
+    count = 0 # output variable
+    # your code here
+    for i in range(len(Text)-len(Pattern)+1):
+        if Text[i:i+len(Pattern)] == Pattern:
+            count = count+1
+    return count
